@@ -1,3 +1,5 @@
+import '../node_modules/font-awesome/css/font-awesome.css';
+
 import React, { Component } from 'react';
 import './Main.css';
 
@@ -17,7 +19,7 @@ export class Main extends Component {
    render() {
       return (
          <div className="main flexed flex-aligned flex-columned flex-rounded">
-            <h1>The Game of Life</h1>
+            <h1>World 'Alpha'</h1>
             <Toolbar />
             <World />
             <h2>Generations: {this.state.generations}</h2>
