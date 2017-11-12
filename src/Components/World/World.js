@@ -32,20 +32,17 @@ export class World extends Component {
    }
 
    _getRandom() {
-      let r = Math.floor(Math.random() * 5);
-      debugger
-      return r;
+      return Math.floor(Math.random() * 5);
    }
 
    componentDidMount() {
-      debugger
       this.randomaze();
    }
 
    render () {
       const width = this.cols * 16;
       let cellsArray = [],
-          cellClass = '';
+          cellClass  = '';
 
       for (let r = 0; r < this.rows; r++) {
          for (let c = 0; c < this.cols; c++) {

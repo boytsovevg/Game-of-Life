@@ -1,0 +1,25 @@
+.main {
+   max-width: 500px;
+   min-height: 700px;
+   margin: 0 auto;
+}
+
+.flexed {
+   display: flex;
+ }
+ 
+ .flex-aligned {
+   align-items: center;
+ }
+ 
+ .flex-spaced {
+   justify-content: space-between;
+ }
+ 
+ .flex-rounded {
+   justify-content: space-around;
+ }
+ 
+ .flex-columned {
+   flex-direction: column;
+ }
