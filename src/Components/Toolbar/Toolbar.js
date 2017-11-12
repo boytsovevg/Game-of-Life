@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Toolbar.css';
 
 import { Button } from '../Button/Button';
-import { Icon } from '../Icon/Icon';
 
 export class Toolbar extends Component {
    render() {
