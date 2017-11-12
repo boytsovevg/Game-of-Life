@@ -4,16 +4,33 @@ import './World.css';
 import { Cell } from '../Cell/Cell';
 
 export class World extends Component {
+   constructor(props) {
+      super(props);
+
+      this.rows = 30;
+      this.cols = 30;
+
+      this.state = {
+         worldCells: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
+      }
+   }
+
+   selectCell(row, col) {
+      const worldCells = [...this.state.worldCells];
+      worldCells[row][col] = !worldCells[row][col];
+      this.setState({worldCells});
+   }
+
    render () {
-      const width = this.props.cols * 16;
+      const width = this.cols * 16;
       let cellsArray = [],
           cellClass = '';
 
-      for (let r = 0; r < this.props.rows; r++) {
-         for (let c = 0; c < this.props.cols; c++) {
+      for (let r = 0; r < this.rows; r++) {
+         for (let c = 0; c < this.cols; c++) {
             let cellId = `${r}_${c}`;
 
-            cellClass = this.props.worldCells[r][c] ? 'cell on' : 'cell off';
+            cellClass = this.state.worldCells[r][c] ? 'cell on' : 'cell off';
 
             cellsArray.push(
                <Cell
@@ -22,7 +39,7 @@ export class World extends Component {
                   id={cellId}
                   row={r}
                   coll={c}
-                  selectCell={this.props.selectCell}
+                  selectCell={this.selectCell.bind(this)}
                />
             )
          }
