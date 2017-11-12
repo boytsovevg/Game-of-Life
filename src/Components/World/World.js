@@ -22,7 +22,7 @@ export class World extends Component {
                   id={cellId}
                   row={r}
                   coll={c}
-                  onSelectCell={this.props.selectCell}
+                  selectCell={this.props.selectCell}
                />
             )
          }
