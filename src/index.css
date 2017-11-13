@@ -1,6 +1,6 @@
 body {
   background-image: url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/darkness.png);
-  color: #fff;
+  color: #E0EAFC;
 }
 
 .center {
@@ -10,7 +10,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  color: white;
+  color: #E0EAFC;
   margin: auto;
   text-align: center;
   width: 50%;

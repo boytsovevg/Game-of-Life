@@ -21,7 +21,7 @@ export class Main extends Component {
          <div className="main flexed flex-aligned flex-columned flex-rounded">
             <h1>World 'Alpha'</h1>
             <div className="flexed flex-rowed"> 
-                <Toolbar directionClass={'flex-columned'} height={100} width={150}/>
+                <Toolbar directionClass={'flex-columned'} outStyles={{marginRight: 30}}/>
                 <World />
             </div>
             <h2 style={{marginTop: 25}}>Generations: {this.state.generations}</h2>
