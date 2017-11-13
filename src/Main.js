@@ -3,8 +3,8 @@ import '../node_modules/font-awesome/css/font-awesome.css';
 import React, { Component } from 'react';
 import './Main.css';
 
-import { Toolbar } from './Components/Toolbar/Toolbar';
-import { World } from './scenes/World/World';
+import { Toolbar } from './Components/ui/Toolbar/Toolbar';
+import { World } from './Components/scenes/World/World';
 
 export class Main extends Component {
    constructor(props) {

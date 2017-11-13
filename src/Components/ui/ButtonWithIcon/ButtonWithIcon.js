@@ -6,7 +6,7 @@ import { Icon } from '../Icon/Icon';
 export const ButtonWithIcon = ({name, iconClass}) => {
     return (
       <Button name={name}>
-            <Icon iconClass={iconClass} />
+        <Icon iconClass={iconClass} />
       </Button>
     )
 }
