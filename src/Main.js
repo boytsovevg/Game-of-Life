@@ -52,6 +52,7 @@ export class Main extends Component {
                    rows={this.rows}
                    cols={this.cols}
                    onUpdateWorld={this.updateWorld}
+                   onUpdateGeneration={this.updateGeneration}
                 />
             </div>
             <Generation

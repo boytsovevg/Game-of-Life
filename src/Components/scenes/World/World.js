@@ -16,6 +16,7 @@ export class World extends Component {
       const world = [...this.props.world];
       world[row][col] = !world[row][col];
       this.props.onUpdateWorld(world);
+      this.props.onUpdateGeneration(0);
    }
 
    render () {
