@@ -6,39 +6,16 @@ import { Cell } from '../Cell/Cell';
 export class World extends Component {
    constructor(props) {
       super(props);
-      this.rows = 30;
-      this.cols = 30;
+      this.rows = this.props.rows;
+      this.cols = this.props.cols;
 
       this.selectCell = this.selectCell.bind(this);
-
-      this.state = {
-         worldCells: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
-      }
    }
 
    selectCell(row, col) {
-      const worldCells = [...this.state.worldCells];
-      worldCells[row][col] = !worldCells[row][col];
-      this.setState({worldCells});
-   }
-
-   randomaze() {
-      const worldCells = [...this.state.worldCells];
-      for (let r = 0; r < this.rows; r++) {
-         for (let c = 0; c < this.cols; c++) {
-          if (this._getRandom() === 1) worldCells[r][c] = true;
-         }
-      }
-
-      this.setState({worldCells});
-   }
-
-   _getRandom() {
-      return Math.floor(Math.random() * 5);
-   }
-
-   componentDidMount() {
-      this.randomaze();
+      const world = [...this.props.world];
+      world[row][col] = !world[row][col];
+      this.props.onUpdateWorld(world);
    }
 
    render () {
@@ -50,7 +27,7 @@ export class World extends Component {
          for (let c = 0; c < this.cols; c++) {
             let cellId = `${r}_${c}`;
 
-            cellClass = this.state.worldCells[r][c] ? 'cell on' : 'cell off';
+            cellClass = this.props.world[r][c] ? 'cell on' : 'cell off';
 
             cellsArray.push(
                <Cell
@@ -59,7 +36,7 @@ export class World extends Component {
                   id={cellId}
                   row={r}
                   coll={c}
-                  selectCell={this.selectCell}
+                  onSelectCell={this.selectCell}
                />
             )
          }
