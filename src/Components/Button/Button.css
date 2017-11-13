@@ -7,3 +7,15 @@
    border-radius: 3px;
    cursor: pointer;
 }
+
+.btn:hover {
+    color: #000;
+    border-color: #E0EAFC;
+    background: #E0EAFC;
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+}
+
+.btn:focus {
+    outline: none;
+}
