@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import './Main.css';
 
 import { Toolbar } from './Components/Toolbar/Toolbar';
-import { World } from './Components/World/World';
+import { World } from './scenes/World/World';
 
 export class Main extends Component {
    constructor(props) {
