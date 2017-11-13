@@ -9,6 +9,8 @@ export class World extends Component {
       this.rows = 30;
       this.cols = 30;
 
+      this.selectCell = this.selectCell.bind(this);
+
       this.state = {
          worldCells: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
       }
@@ -57,7 +59,7 @@ export class World extends Component {
                   id={cellId}
                   row={r}
                   coll={c}
-                  selectCell={this.selectCell.bind(this)}
+                  selectCell={this.selectCell}
                />
             )
          }

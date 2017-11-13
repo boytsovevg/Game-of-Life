@@ -3,6 +3,11 @@ import './Cell.css';
 
 
 export class Cell extends Component {
+   constructor(props) {
+      super(props);
+
+      this.onSelectCell = this.onSelectCell.bind(this);
+   }
 
    onSelectCell() {
       this.props.selectCell(this.props.row, this.props.coll);
@@ -12,7 +17,7 @@ export class Cell extends Component {
       return (
          <div className={this.props.cellClass}
             id={this.props.id}
-            onClick={this.onSelectCell.bind(this)}>
+            onClick={this.onSelectCell}>
          </div>
       )
    }
