@@ -12,6 +12,7 @@
    align-items: center;
  }
  
+ 
  .flex-spaced {
    justify-content: space-between;
  }
@@ -20,6 +21,10 @@
    justify-content: space-around;
  }
  
+ .flex-rowed {
+   flex-direction: row;
+ }
+
  .flex-columned {
    flex-direction: column;
  }

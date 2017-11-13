@@ -1,6 +1,6 @@
 .cell {
   display: inline-block;
-  border: 1px solid black;
+  border: 1px solid #131313;
   width: 15px;
   height: 15px;
   margin-left: -1px;
@@ -23,4 +23,3 @@
    background: -webkit-linear-gradient(to right, #0f9b0f, #000000);
    background: linear-gradient(to right, #0f9b0f, #000000);
  }
- 

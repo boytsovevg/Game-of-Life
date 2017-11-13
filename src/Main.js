@@ -20,9 +20,11 @@ export class Main extends Component {
       return (
          <div className="main flexed flex-aligned flex-columned flex-rounded">
             <h1>World 'Alpha'</h1>
-            <Toolbar />
-            <World />
-            <h2>Generations: {this.state.generations}</h2>
+            <div className="flexed flex-rowed"> 
+                <Toolbar directionClass={'flex-columned'} height={100} width={150}/>
+                <World />
+            </div>
+            <h2 style={{marginTop: 25}}>Generations: {this.state.generations}</h2>
          </div>
       )
    }
