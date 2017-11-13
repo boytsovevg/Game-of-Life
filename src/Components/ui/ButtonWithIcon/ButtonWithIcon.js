@@ -5,8 +5,9 @@ import { Icon } from '../Icon/Icon';
 
 export const ButtonWithIcon = ({name, iconClass}) => {
     return (
-      <Button name={name}>
+      <div>
+        <Button name={name}/>
         <Icon iconClass={iconClass} />
-      </Button>
+      </div>
     )
 }
