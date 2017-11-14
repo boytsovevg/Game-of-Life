@@ -32,32 +32,34 @@ export class Toolbar extends Component {
    }
 
    play() {
-    // let initialWorld = this.props.world;
-    // let world = this.props.world.map();
+      let initialWorld = this.props.world;
+      let world = [...this.props.world];
 
-    // for (let i = 0; i < this.rows; i++) {
-    //    for (let j = 0; j < this.cols; j++) {
-    //       let neigboursCount = 0;
-    //
-    //       //game conditions
-    //       if (i > 0) if (initialWorld[i - 1][j]) neigboursCount++;
-    //       if (i > 0 && j > 0) if (initialWorld[i - 1][j - 1]) neigboursCount++;
-    //       if (i > 0 && j < this.cols - 1) if (initialWorld[i - 1][j + 1]) neigboursCount++;
-    //       if (j < this.cols - 1) if (initialWorld[i][j + 1]) neigboursCount++;
-    //       if (j > 0) if (initialWorld[i][j - 1]) neigboursCount++;
-    //       if (i < this.rows - 1) if (initialWorld[i + 1][j]) neigboursCount++;
-    //       if (i < this.rows - 1 && j > 0) if (initialWorld[i + 1][j - 1]) neigboursCount++;
-    //       if (i < this.rows - 1 && this.cols - 1) if (initialWorld[i + 1][j + 1]) neigboursCount++;
-    //       if (initialWorld[i][j] && (neigboursCount < 2 || neigboursCount > 3)) world[i][j] = false;
-    //       if (!initialWorld[i][j] && neigboursCount === 3) world[i][j] = true;
-    //
-    //
-    //    }
-    // }
+      const { rows, cols } = this.props;
+      let { generationCount } = this.props;
+      
+      for (let i = 0; i < rows; i++) {
+         for (let j = 0; j < cols; j++) {
+         let neigboursCount = 0;
 
-    let { generationCount } = this.props;
-    generationCount++;
-    this.props.onUpdateGeneration(generationCount);
+         //game conditions
+         if (i > 0) if (initialWorld[i - 1][j]) neigboursCount++;
+         if (i > 0 && j > 0) if (initialWorld[i - 1][j - 1]) neigboursCount++;
+         if (i > 0 && j < cols - 1) if (initialWorld[i - 1][j + 1]) neigboursCount++;
+         if (j < cols - 1) if (initialWorld[i][j + 1]) neigboursCount++;
+         if (j > 0) if (initialWorld[i][j - 1]) neigboursCount++;
+         if (i < rows - 1) if (initialWorld[i + 1][j]) neigboursCount++;
+         if (i < rows - 1 && j > 0) if (initialWorld[i + 1][j - 1]) neigboursCount++;
+         if (i < rows - 1 && cols - 1) if (initialWorld[i + 1][j + 1]) neigboursCount++;
+         if (initialWorld[i][j] && (neigboursCount < 2 || neigboursCount > 3)) world[i][j] = false;
+         if (!initialWorld[i][j] && neigboursCount === 3) world[i][j] = true;
+         }
+      }
+
+      generationCount++;
+
+      this.props.onUpdateGeneration(generationCount);
+      this.props.onUpdateWorld(world);
    }
 
    playAction() {
