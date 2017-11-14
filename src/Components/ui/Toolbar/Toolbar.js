@@ -7,8 +7,16 @@ export class Toolbar extends Component {
    constructor(props) {
       super(props);
 
+      this.state = {
+         isPlaying: false,
+         intervalId: 0
+      };
+
       this.generateAction = this.generateAction.bind(this);
       this.playAction = this.playAction.bind(this);
+      this.stopAction = this.stopAction.bind(this);
+      this.clearAction = this.clearAction.bind(this);
+      
    }
 
    _getRandom() {
@@ -65,15 +73,31 @@ export class Toolbar extends Component {
    playAction() {
       const { speed } = this.props;
 
-      clearInterval(this.intervalId);
-      this.intervalId = setInterval(this.play.bind(this), speed);
+      let intervalId = setInterval(this.play.bind(this), speed);
+      this.setState({isPlaying: true, intervalId});
+   }
+
+   stopAction() {
+      this.setState({isPlaying: false});
+      clearInterval(this.state.intervalId);
+   }
+
+   clearAction() {
+      const {rows, cols} = this.props;
+      const world = WorldInitializer({rows, cols});
+
+      clearInterval(this.state.intervalId);
+      this.setState({isPlaying: false});
+      this.props.onUpdateGeneration(0);
+      this.props.onUpdateWorld(world);
    }
 
     render() {
         return (
             <div style={{marginRight: 30}} className={`flexed flex-aligned ${this.props.directionClass}`}>
                 <Button name={'Generate world'} onClickAction={this.generateAction}/>
-                <Button name={'Play'} onClickAction={this.playAction}/>
+                <Button name={this.state.isPlaying ? 'Stop' : 'Play'} onClickAction={this.state.isPlaying ? this.stopAction : this.playAction}/>
+                <Button name={'Clear'} onClickAction={this.clearAction}/>
             </div>
         )
     }
