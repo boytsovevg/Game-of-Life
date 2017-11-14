@@ -92,13 +92,13 @@ export class Toolbar extends Component {
       this.props.onUpdateWorld(world);
    }
 
-    render() {
-        return (
-            <div style={{marginRight: 30}} className={`flexed flex-aligned ${this.props.directionClass}`}>
-                <Button name={'Generate world'} onClickAction={this.generateAction}/>
-                <Button name={this.state.isPlaying ? 'Stop' : 'Play'} onClickAction={this.state.isPlaying ? this.stopAction : this.playAction}/>
-                <Button name={'Clear'} onClickAction={this.clearAction}/>
-            </div>
-        )
-    }
+   render() {
+      return (
+         <div style={{marginRight: 30}} className={`flexed flex-aligned ${this.props.directionClass}`}>
+               <Button name={'Generate world'} onClickAction={this.generateAction} outStyles={{marginTop: 10, marginBottom: 20}}/>
+               <Button name={this.state.isPlaying ? 'Stop' : 'Play'} onClickAction={this.state.isPlaying ? this.stopAction : this.playAction}/>
+               <Button name={'Clear'} onClickAction={this.clearAction}/>
+         </div>
+      )
+   }
 }
