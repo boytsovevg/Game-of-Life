@@ -58,7 +58,7 @@ export class Toolbar extends Component {
          if (j > 0) if (initialWorld[i][j - 1]) neigboursCount++;
          if (i < rows - 1) if (initialWorld[i + 1][j]) neigboursCount++;
          if (i < rows - 1 && j > 0) if (initialWorld[i + 1][j - 1]) neigboursCount++;
-         if (i < rows - 1 && cols - 1) if (initialWorld[i + 1][j + 1]) neigboursCount++;
+         if (i < rows - 1 && j < cols - 1) if (initialWorld[i + 1][j + 1]) neigboursCount++;
          if (initialWorld[i][j] && (neigboursCount < 2 || neigboursCount > 3)) world[i][j] = false;
          if (!initialWorld[i][j] && neigboursCount === 3) world[i][j] = true;
          }
