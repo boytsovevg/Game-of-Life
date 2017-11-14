@@ -6,6 +6,7 @@ import './Main.css';
 import { Generation } from './Components/scenes/Generation/Generation';
 import { Toolbar } from './Components/ui/Toolbar/Toolbar';
 import { World } from './Components/scenes/World/World';
+import { WorldInitializer } from './Models/WorldInitializer'; 
 
 export class Main extends Component {
    constructor(props) {
@@ -15,7 +16,7 @@ export class Main extends Component {
       this.cols = 30;
 
       this.state = {
-         world: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
+         world: WorldInitializer({rows: this.rows, cols: this.cols}),
          generation: 0,
          speed: 100
       };

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { Button } from '../Button/Button';
+import { WorldInitializer } from '../../../Models/WorldInitializer';
 
 export class Toolbar extends Component {
    constructor(props) {
@@ -18,7 +19,7 @@ export class Toolbar extends Component {
 
    generateAction() {
       const {rows, cols} = this.props;
-      const world = [...this.props.world];
+      const world = WorldInitializer({rows, cols});
 
       for (let r = 0; r < rows; r++) {
          for (let c = 0; c < cols; c++) {
@@ -31,32 +32,32 @@ export class Toolbar extends Component {
    }
 
    play() {
-      // let initialWorld = this.props.world;
-      // let world = this.props.world.map();
+    // let initialWorld = this.props.world;
+    // let world = this.props.world.map();
 
-      // for (let i = 0; i < this.rows; i++) {
-      //    for (let j = 0; j < this.cols; j++) {
-      //       let neigboursCount = 0;
-      //
-      //       //game conditions
-      //       if (i > 0) if (initialWorld[i - 1][j]) neigboursCount++;
-      //       if (i > 0 && j > 0) if (initialWorld[i - 1][j - 1]) neigboursCount++;
-      //       if (i > 0 && j < this.cols - 1) if (initialWorld[i - 1][j + 1]) neigboursCount++;
-      //       if (j < this.cols - 1) if (initialWorld[i][j + 1]) neigboursCount++;
-      //       if (j > 0) if (initialWorld[i][j - 1]) neigboursCount++;
-      //       if (i < this.rows - 1) if (initialWorld[i + 1][j]) neigboursCount++;
-      //       if (i < this.rows - 1 && j > 0) if (initialWorld[i + 1][j - 1]) neigboursCount++;
-      //       if (i < this.rows - 1 && this.cols - 1) if (initialWorld[i + 1][j + 1]) neigboursCount++;
-      //       if (initialWorld[i][j] && (neigboursCount < 2 || neigboursCount > 3)) world[i][j] = false;
-      //       if (!initialWorld[i][j] && neigboursCount === 3) world[i][j] = true;
-      //
-      //
-      //    }
-      // }
+    // for (let i = 0; i < this.rows; i++) {
+    //    for (let j = 0; j < this.cols; j++) {
+    //       let neigboursCount = 0;
+    //
+    //       //game conditions
+    //       if (i > 0) if (initialWorld[i - 1][j]) neigboursCount++;
+    //       if (i > 0 && j > 0) if (initialWorld[i - 1][j - 1]) neigboursCount++;
+    //       if (i > 0 && j < this.cols - 1) if (initialWorld[i - 1][j + 1]) neigboursCount++;
+    //       if (j < this.cols - 1) if (initialWorld[i][j + 1]) neigboursCount++;
+    //       if (j > 0) if (initialWorld[i][j - 1]) neigboursCount++;
+    //       if (i < this.rows - 1) if (initialWorld[i + 1][j]) neigboursCount++;
+    //       if (i < this.rows - 1 && j > 0) if (initialWorld[i + 1][j - 1]) neigboursCount++;
+    //       if (i < this.rows - 1 && this.cols - 1) if (initialWorld[i + 1][j + 1]) neigboursCount++;
+    //       if (initialWorld[i][j] && (neigboursCount < 2 || neigboursCount > 3)) world[i][j] = false;
+    //       if (!initialWorld[i][j] && neigboursCount === 3) world[i][j] = true;
+    //
+    //
+    //    }
+    // }
 
-      let { generationCount } = this.props;
-      generationCount++;
-      this.props.onUpdateGeneration(generationCount);
+    let { generationCount } = this.props;
+    generationCount++;
+    this.props.onUpdateGeneration(generationCount);
    }
 
    playAction() {
@@ -69,8 +70,8 @@ export class Toolbar extends Component {
     render() {
         return (
             <div style={{marginRight: 30}} className={`flexed flex-aligned ${this.props.directionClass}`}>
-                <Button name={'Generate world'} onClick={this.generateAction}/>
-                <Button name={'Play'} onClick={this.playAction}/>
+                <Button name={'Generate world'} onClickAction={this.generateAction}/>
+                <Button name={'Play'} onClickAction={this.playAction}/>
             </div>
         )
     }
