@@ -1,0 +1,22 @@
+.btn {
+   padding: 10px 15px;
+   background: transparent;
+   color: #fff;
+   font-weight: bold;
+   border: 2px solid #fff;
+   border-radius: 3px;
+   cursor: pointer;
+}
+
+.btn:hover {
+   color: #000;
+   border-color: #E0EAFC;
+   background: #E0EAFC;
+   background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
+   background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+   box-shadow: 0px 0px 7px #E0EAFC;
+}
+
+.btn:focus {
+   outline: none;
+}

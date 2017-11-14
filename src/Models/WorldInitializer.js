@@ -1,0 +1,1 @@
+export const WorldInitializer = ({rows, cols}) => Array(rows).fill().map(() => Array(cols).fill(false));
