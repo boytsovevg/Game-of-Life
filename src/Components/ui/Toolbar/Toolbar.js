@@ -23,22 +23,6 @@ export class Toolbar extends Component {
       return Math.floor(Math.random() * 7);
    }
 
-   //actions
-
-   generateAction() {
-      const {rows, cols} = this.props;
-      const world = WorldInitializer({rows, cols});
-
-      for (let r = 0; r < rows; r++) {
-         for (let c = 0; c < cols; c++) {
-          if (this._getRandom() === 1) world[r][c] = true;
-         }
-      }
-
-      this.props.onUpdateWorld(world);
-      this.props.onUpdateGeneration(0);
-   }
-
    getWorldCopy() {
       return JSON.stringify(this.props.world);
    }
@@ -74,6 +58,21 @@ export class Toolbar extends Component {
       this.props.onUpdateWorld(world);
    }
 
+   //actions START
+   generateAction() {
+      const {rows, cols} = this.props;
+      const world = WorldInitializer({rows, cols});
+
+      for (let r = 0; r < rows; r++) {
+         for (let c = 0; c < cols; c++) {
+          if (this._getRandom() === 1) world[r][c] = true;
+         }
+      }
+
+      this.props.onUpdateWorld(world);
+      this.props.onUpdateGeneration(0);
+   }
+
    playAction() {
       const { speed } = this.props;
 
@@ -95,6 +94,7 @@ export class Toolbar extends Component {
       this.props.onUpdateGeneration(0);
       this.props.onUpdateWorld(world);
    }
+   // actions END
 
    render() {
       return (
