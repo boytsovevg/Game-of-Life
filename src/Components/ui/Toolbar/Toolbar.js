@@ -16,7 +16,7 @@ export class Toolbar extends Component {
       this.playAction = this.playAction.bind(this);
       this.stopAction = this.stopAction.bind(this);
       this.clearAction = this.clearAction.bind(this);
-      
+
    }
 
    _getRandom() {
@@ -39,28 +39,32 @@ export class Toolbar extends Component {
       this.props.onUpdateGeneration(0);
    }
 
+   getWorldCopy() {
+      return JSON.stringify(this.props.world);
+   }
+
    play() {
       let initialWorld = this.props.world;
-      let world = [...this.props.world];
+      let world = JSON.parse(this.getWorldCopy());
 
       const { rows, cols } = this.props;
       let { generationCount } = this.props;
-      
+
       for (let i = 0; i < rows; i++) {
          for (let j = 0; j < cols; j++) {
-         let neigboursCount = 0;
+            let neigboursCount = 0;
 
-         //game conditions
-         if (i > 0) if (initialWorld[i - 1][j]) neigboursCount++;
-         if (i > 0 && j > 0) if (initialWorld[i - 1][j - 1]) neigboursCount++;
-         if (i > 0 && j < cols - 1) if (initialWorld[i - 1][j + 1]) neigboursCount++;
-         if (j < cols - 1) if (initialWorld[i][j + 1]) neigboursCount++;
-         if (j > 0) if (initialWorld[i][j - 1]) neigboursCount++;
-         if (i < rows - 1) if (initialWorld[i + 1][j]) neigboursCount++;
-         if (i < rows - 1 && j > 0) if (initialWorld[i + 1][j - 1]) neigboursCount++;
-         if (i < rows - 1 && j < cols - 1) if (initialWorld[i + 1][j + 1]) neigboursCount++;
-         if (initialWorld[i][j] && (neigboursCount < 2 || neigboursCount > 3)) world[i][j] = false;
-         if (!initialWorld[i][j] && neigboursCount === 3) world[i][j] = true;
+            //game conditions
+            if (i > 0) if (initialWorld[i - 1][j]) neigboursCount++;
+            if (i > 0 && j > 0) if (initialWorld[i - 1][j - 1]) neigboursCount++;
+            if (i > 0 && j < cols - 1) if (initialWorld[i - 1][j + 1]) neigboursCount++;
+            if (j < cols - 1) if (initialWorld[i][j + 1]) neigboursCount++;
+            if (j > 0) if (initialWorld[i][j - 1]) neigboursCount++;
+            if (i < rows - 1) if (initialWorld[i + 1][j]) neigboursCount++;
+            if (i < rows - 1 && j > 0) if (initialWorld[i + 1][j - 1]) neigboursCount++;
+            if (i < rows - 1 && j < cols - 1) if (initialWorld[i + 1][j + 1]) neigboursCount++;
+            if (initialWorld[i][j] && (neigboursCount < 2 || neigboursCount > 3)) world[i][j] = false;
+            if (!initialWorld[i][j] && neigboursCount === 3) world[i][j] = true;
          }
       }
 
