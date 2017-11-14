@@ -1,13 +1,13 @@
-Terraria life game
+# The game of life
 
-1. Clone it to your directory
+* Clone it to your directory
+#### `git clone git@github.com:boytsovevg/Game-of-Life.git`
 
-2. Install packages
-### `npm install`
+* Install packages
+#### `npm install`
 
-3. Run it
+* Run it
+#### `npm start`
 
-### `npm start`
-
-That`s it!
+## That`s it!
 
