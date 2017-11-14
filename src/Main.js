@@ -36,7 +36,7 @@ export class Main extends Component {
    render() {
       return (
          <div className="main flexed flex-aligned flex-columned flex-rounded">
-            <h1>World 'Alpha'</h1>
+            <h1 style={{marginBottom: 35}}>World 'Alpha'</h1>
             <div className="flexed flex-rowed">
                 <Toolbar
                    directionClass={'flex-columned'}
