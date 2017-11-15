@@ -22,13 +22,9 @@ export class Toolbar extends Component {
       return Math.floor(Math.random() * 7);
    }
 
-   getWorldCopy() {
-      return JSON.stringify(this.props.world);
-   }
-
    play() {
       let initialWorld = this.props.world;
-      let world = JSON.parse(this.getWorldCopy());
+      let world = this.props.world.map(array => array.slice());
 
       const { rows, cols } = this.props;
       let { generationCount } = this.props;
