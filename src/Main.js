@@ -7,14 +7,14 @@ import { Generation } from './Components/scenes/Generation/Generation';
 import { Title } from './Components/scenes/Title/Title';
 import { Toolbar } from './Components/ui/Toolbar/Toolbar';
 import { World } from './Components/scenes/World/World';
-import { WorldInitializer } from './Models/WorldInitializer'; 
+import { WorldInitializer } from './Models/WorldInitializer';
 
 export class Main extends Component {
    constructor(props) {
       super(props);
 
-      this.rows = 60;
-      this.cols = 90;
+      this.rows = 30;
+      this.cols = 60;
 
       this.state = {
          world: WorldInitializer({rows: this.rows, cols: this.cols}),
@@ -24,6 +24,7 @@ export class Main extends Component {
 
       this.updateWorld = this.updateWorld.bind(this);
       this.updateGeneration = this.updateGeneration.bind(this);
+      this.updateSpeed = this.updateSpeed.bind(this);
    }
 
    updateWorld(world) {
@@ -32,6 +33,10 @@ export class Main extends Component {
 
    updateGeneration(generation) {
       this.setState({generation});
+   }
+
+   updateSpeed(speed) {
+      this.setState({speed});
    }
 
    render() {
@@ -48,6 +53,7 @@ export class Main extends Component {
                    generationCount={this.state.generation}
                    onUpdateWorld={this.updateWorld}
                    onUpdateGeneration={this.updateGeneration}
+                   onUpdateSpeed={this.updateSpeed}
                 />
                 <World
                    world={this.state.world}
