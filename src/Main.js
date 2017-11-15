@@ -12,8 +12,8 @@ export class Main extends Component {
    constructor(props) {
       super(props);
 
-      this.rows = 30;
-      this.cols = 30;
+      this.rows = 60;
+      this.cols = 90;
 
       this.state = {
          world: WorldInitializer({rows: this.rows, cols: this.cols}),
