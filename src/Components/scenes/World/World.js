@@ -19,7 +19,7 @@ export class World extends Component {
       this.props.onUpdateGeneration(0);
    }
 
-   render () {
+   render() {
       const width = this.cols * 11;
       let cellsArray = [],
           cellClass  = '';

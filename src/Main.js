@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import './Main.css';
 
 import { Generation } from './Components/scenes/Generation/Generation';
+import { Title } from './Components/scenes/Title/Title';
 import { Toolbar } from './Components/ui/Toolbar/Toolbar';
 import { World } from './Components/scenes/World/World';
 import { WorldInitializer } from './Models/WorldInitializer'; 
@@ -36,7 +37,7 @@ export class Main extends Component {
    render() {
       return (
          <div className="main flexed flex-aligned flex-columned flex-rounded">
-            <h1 style={{marginBottom: 35}}>World 'Alpha'</h1>
+            <Title name={'World "Qwerty"'} />
             <div className="flexed flex-rowed">
                 <Toolbar
                    directionClass={'flex-columned'}

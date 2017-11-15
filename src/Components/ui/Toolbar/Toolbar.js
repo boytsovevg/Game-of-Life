@@ -16,7 +16,6 @@ export class Toolbar extends Component {
       this.playAction = this.playAction.bind(this);
       this.stopAction = this.stopAction.bind(this);
       this.clearAction = this.clearAction.bind(this);
-
    }
 
    _getRandom() {
@@ -76,7 +75,7 @@ export class Toolbar extends Component {
    playAction() {
       const { speed } = this.props;
 
-      let intervalId = setInterval(this.play.bind(this), speed);
+      let intervalId = setInterval(() => this.play(), speed);
       this.setState({isPlaying: true, intervalId});
    }
 
