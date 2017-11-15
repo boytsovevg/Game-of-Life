@@ -72,9 +72,7 @@ export class Toolbar extends Component {
    }
 
    playAction() {
-      const { speed } = this.props;
-
-      let intervalId = setInterval(() => this.play(), speed);
+      let intervalId = setInterval(() => this.play(), this.props.speed);
       this.setState({isPlaying: true, intervalId});
    }
 

@@ -19,7 +19,7 @@ export class Main extends Component {
       this.state = {
          world: WorldInitializer({rows: this.rows, cols: this.cols}),
          generation: 0,
-         speed: 50
+         speed: 100
       };
 
       this.updateWorld = this.updateWorld.bind(this);
