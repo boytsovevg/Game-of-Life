@@ -15,7 +15,7 @@ export class Main extends Component {
 
       this.rows = 30;
       this.cols = 60;
-
+      
       this.state = {
          world: WorldInitializer({rows: this.rows, cols: this.cols}),
          generation: 0,
@@ -42,7 +42,7 @@ export class Main extends Component {
    render() {
       return (
          <div className="main flexed flex-aligned flex-columned flex-rounded">
-            <Title name={'World "Qwerty"'} />
+            <Title name={'Worlds | Кверту'} />
             <div className="flexed flex-rowed">
                 <Toolbar
                    directionClass={'flex-columned'}

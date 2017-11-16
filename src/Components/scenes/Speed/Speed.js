@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from './SpeedPropTypes';
 
 export const Speed = ({speedValue, style}) => {
    const speedRatio = {
@@ -12,3 +13,5 @@ export const Speed = ({speedValue, style}) => {
       <h3 style={style}>{speedName}: {speedValue}</h3>
    )
 }
+
+Speed.propTypes = propTypes;

@@ -36,7 +36,7 @@ export class World extends Component {
                   key={cellId}
                   id={cellId}
                   row={r}
-                  coll={c}
+                  col={c}
                   onSelectCell={this.selectCell}
                />
             )
