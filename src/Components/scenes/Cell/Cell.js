@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import propTypes from './CellPropTypes';
 import './Cell.css';
 
+export const Cell = ({cellClass, id, onSelectCell, row, col}) => {
+   return (
+      <div className={cellClass}
+         id={id}
+         onClick={() => onSelectCell(row, col)}>
+      </div>
+   )
+};
 
-export class Cell extends Component {
+Cell.propTypes = propTypes;
 
-   render() {
-      return (
-         <div className={this.props.cellClass}
-            id={this.props.id}
-            onClick={() => this.props.onSelectCell(this.props.row, this.props.coll)}>
-         </div>
-      )
-   }
-}

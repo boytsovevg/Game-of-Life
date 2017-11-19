@@ -19,8 +19,8 @@ export class World extends Component {
       this.props.onUpdateGeneration(0);
    }
 
-   render () {
-      const width = this.cols * 16;
+   render() {
+      const width = this.cols * 11;
       let cellsArray = [],
           cellClass  = '';
 
@@ -36,7 +36,7 @@ export class World extends Component {
                   key={cellId}
                   id={cellId}
                   row={r}
-                  coll={c}
+                  col={c}
                   onSelectCell={this.selectCell}
                />
             )
